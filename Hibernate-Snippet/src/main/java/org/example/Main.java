@@ -10,9 +10,10 @@ public class Main {
     public static void main(String[] args) {
 
         Student s = new Student();
-        s.setsName("Johnny");
-        s.setRollno(106);
-        s.setsAge(23);
+        Student s2=null;
+//        s.setsName("Johnny");
+//        s.setRollno(106);
+//        s.setsAge(23);
 
 //        Configuration cfg = new Configuration();
 //        cfg.configure(); // loads hibernate.cfg.xml
@@ -21,14 +22,15 @@ public class Main {
 //        SessionFactory sf = cfg.buildSessionFactory();
         SessionFactory sf = new Configuration().addAnnotatedClass(org.example.Student.class).configure().buildSessionFactory();
         Session session = sf.openSession();
+        s2=session.find(Student.class,103);
 
-        Transaction tx = session.beginTransaction();
-        session.persist(s);
-        tx.commit();
+//        Transaction tx = session.beginTransaction();
+//        session.persist(s);
+//        tx.commit();
 
         session.close();
         sf.close();
 
-        System.out.println(s);
+        System.out.println(s2);
     }
 }
