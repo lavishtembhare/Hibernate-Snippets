@@ -2,6 +2,7 @@ package org.example;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 
 import java.util.List;
 
@@ -13,16 +14,6 @@ public class Laptop {
     private String brand;
     private String model;
     private int ram;
-    @ManyToMany
-    private List<Coder> coder;
-
-    public List<Coder> getCoder() {
-        return coder;
-    }
-
-    public void setCoder(List<Coder> coder) {
-        this.coder = coder;
-    }
 
     public int getLid() {
         return lid;
@@ -58,7 +49,6 @@ public class Laptop {
         return model;
     }
 
-
     @Override
     public String toString() {
         return "Laptop{" +
@@ -66,7 +56,6 @@ public class Laptop {
                 ", brand='" + brand + '\'' +
                 ", model='" + model + '\'' +
                 ", ram=" + ram +
-                ", coder=" + coder +
                 '}';
     }
 }
